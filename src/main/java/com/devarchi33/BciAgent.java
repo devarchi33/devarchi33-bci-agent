@@ -21,7 +21,7 @@ public class BciAgent implements ClassFileTransformer {
     }
 
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        String[] ignore = new String[]{"java/", "sun/", "javax"};
+        String[] ignore = new String[]{"java/", "sun/", "javax/"};
         for (int i = 0; i < ignore.length; i++) {
             if (className.startsWith(ignore[i])) {
                 return classfileBuffer;
@@ -57,7 +57,7 @@ public class BciAgent implements ClassFileTransformer {
     private void doTransform(CtBehavior method) throws NotFoundException, CannotCompileException {
         if (method.getName().equals("doSomething")) {
             method.insertBefore("System.out.println(\"started method at\" + new java.util.Date());");
-            method.insertAfter("System.out.println(\"ended method at\" + new java.util.Date();)");
+            method.insertAfter("System.out.println(\"ended method at\" + new java.util.Date());");
         }
     }
 }
