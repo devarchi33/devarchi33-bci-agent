@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Premain-Class: com.devarchi33.BciAgent
+Boot-Class-Path: ./javaassist.jar
+Can-Redefine-Classes: true
